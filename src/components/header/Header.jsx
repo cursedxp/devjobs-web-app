@@ -3,7 +3,12 @@ export default function Header() {
     <header className="">
       <div>
         <div className="brand-name"></div>
-        <div className="change-theme"></div>
+        <div className="change-theme">
+          <div className="switch">
+            <input type="checkbox" />
+            <span className="slider"></span>
+          </div>
+        </div>
       </div>
       <div className="filter"></div>
     </header>
