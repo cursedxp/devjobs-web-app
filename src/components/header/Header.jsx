@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import "../header/Header.scss";
 import { ThemeContext } from "../../context/context";
 import filterIcon from "../../assets/mobile/icon-filter.svg";
 import searchIcon from "../../assets/mobile/searchIcon.svg";
@@ -8,14 +9,13 @@ import moonIcon from "../../assets/mobile/MoonIcon.svg";
 export default function Header() {
   const { handleTheme } = useContext(ThemeContext);
   return (
-    <header className="">
-      <div>
-        <div className="brand-name">Devjobs</div>
-        <div>
+    <header>
+      <div className="brand">
+        <div className="brand-name">devjobs</div>
+        <div className="flex gap-4">
           <img src={sunIcon} alt="light theme" width={"20px"} height={"20px"} />
-          <div className="change-theme" onClick={handleTheme}>
-            <div className="switch">
-              <input type="checkbox" />
+          <div className="change-theme">
+            <div className="switch" onClick={handleTheme}>
               <span className="slider"></span>
             </div>
           </div>
