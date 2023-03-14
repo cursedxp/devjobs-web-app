@@ -32,6 +32,9 @@ header {
       left: 2px;
       transition: transform 0.2s ease;
     }
+    &.active {
+      background-color: $white;
+    }
     &.active .slider {
       transform: translateX(20px);
     }
