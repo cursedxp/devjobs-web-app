@@ -11,6 +11,8 @@ export function ContextWrapper(props) {
     app.classList.remove(theme);
     app.classList.add(newTheme);
     setTheme(newTheme);
+    const switchEl = document.querySelector(".switch");
+    switchEl.classList.toggle("active");
   };
 
   return (
