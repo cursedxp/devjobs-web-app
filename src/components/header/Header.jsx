@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import "../header/Header.scss";
+import "./Header.scss";
 import { ThemeContext } from "../../context/context";
 import filterIcon from "../../assets/mobile/icon-filter.svg";
 import searchIcon from "../../assets/mobile/searchIcon.svg";
