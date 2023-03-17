@@ -4,12 +4,8 @@ $lightgrey: rgb(244, 246, 248);
 $grey: rgb(157, 174, 194);
 $darkgrey: rgb(110, 128, 152);
 $violet: rgb(89, 100, 224);
-.light {
-  background-color: $lightgrey;
-}
-.dark {
-  background-color: $midnight;
-}
+$darkblue: rgb(25, 32, 45);
+
 .App {
   width: 100%;
   main {
@@ -20,7 +16,6 @@ $violet: rgb(89, 100, 224);
   header {
     .filter {
       padding: 16px 16px 16px 0;
-      box-shadow: 0px 1px 3px 0px $grey;
       form {
         display: flex;
       }
@@ -62,7 +57,6 @@ $violet: rgb(89, 100, 224);
     height: 136px;
     .filter {
       position: absolute;
-
       background-color: $white;
       border-radius: 8px;
       bottom: -48px;
@@ -85,4 +79,29 @@ $violet: rgb(89, 100, 224);
       margin-top: 16px;
     }
   }
-} ;
+}
+.light {
+  background-color: $lightgrey;
+}
+.dark {
+  background-color: $midnight;
+  .job-post {
+    background-color: $darkblue;
+    .position {
+      color: $white;
+    }
+  }
+  .filter {
+    background-color: $darkblue;
+    box-shadow: none;
+    input[type="search"] {
+      background-color: $darkblue;
+    }
+    button.white {
+      background: none;
+      img {
+        fill: $white;
+      }
+    }
+  }
+}
