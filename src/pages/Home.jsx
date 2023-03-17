@@ -6,13 +6,14 @@ import JobPost from "../components/JobPost/JobPost";
 
 export default function Home() {
   const [jobs, setJobs] = useState(data);
+
   return (
     <main>
       <Header></Header>
       <div className="jobs">
         {jobs.map((job) => {
           const id = uuidv4();
-          return <JobPost job={job} id={id} />;
+          return <JobPost job={job} key={id} />;
         })}
       </div>
       <button className="more">Load More</button>
