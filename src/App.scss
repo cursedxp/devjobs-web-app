@@ -5,15 +5,18 @@ $grey: rgb(157, 174, 194);
 $darkgrey: rgb(110, 128, 152);
 $violet: rgb(89, 100, 224);
 .light {
-  background-color: $white;
+  background-color: $lightgrey;
 }
 .dark {
   background-color: $midnight;
 }
 .App {
   width: 100%;
-  background-color: $lightgrey;
-
+  main {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
   .more {
     background-color: $violet;
     border: none;
@@ -22,15 +25,17 @@ $violet: rgb(89, 100, 224);
     border-radius: 8px;
     font-weight: 700;
     margin: 32px 0;
+    max-width: 152px;
+    align-self: center;
   }
 }
 
 @media (max-width: 375px) {
   header {
     background-image: url("./assets/mobile/bg-pattern-header.svg");
-    margin-bottom: 72px;
   }
   .jobs {
+    margin-top: 256px;
     display: grid;
     grid-template-columns: 1fr;
     gap: 48px;
