@@ -1,0 +1,45 @@
+$white: rgb(255, 255, 255);
+$grey: rgb(157, 174, 194);
+$darkgrey: rgb(110, 128, 152);
+$violet: rgb(89, 100, 224);
+.job-post {
+  margin: 0 24px 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  padding: 32px;
+  background-color: $white;
+  border-radius: 8px;
+  .company-logo {
+    position: absolute;
+    border-radius: 16px;
+    top: -25px;
+    left: 32px;
+  }
+  .postedAt {
+    font-size: 16px;
+    color: $darkgrey;
+    .separator {
+      width: 4px;
+      height: 4px;
+      background-color: $darkgrey;
+      border-radius: 32px;
+      display: inline-block;
+      margin: 0 12px 0 12px;
+    }
+  }
+  .position {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .componay-name {
+    font-size: 16px;
+    color: $darkgrey;
+  }
+  .location {
+    font-size: 14px;
+    color: $violet;
+    font-weight: 700;
+  }
+}
