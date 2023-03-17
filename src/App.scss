@@ -17,12 +17,35 @@ $violet: rgb(89, 100, 224);
     flex-direction: column;
     position: relative;
   }
-  .more {
+  header {
+    .filter {
+      padding: 16px 16px 16px 0;
+      box-shadow: 0px 1px 3px 0px $grey;
+      input[type="search"] {
+        padding-left: 16px;
+        border: none;
+        &:focus {
+          border: none;
+          outline: none;
+        }
+      }
+    }
+  }
+  button {
     background-color: $violet;
     border: none;
     color: $white;
-    padding: 16px 32px;
     border-radius: 8px;
+    padding: 16px;
+    height: 48px;
+  }
+  button.white {
+    background-color: $white;
+    padding: 16px;
+    height: 48px;
+  }
+  .more {
+    padding: 16px 32px;
     font-weight: 700;
     margin: 32px 0;
     max-width: 152px;
@@ -33,7 +56,19 @@ $violet: rgb(89, 100, 224);
 @media (max-width: 375px) {
   header {
     background-image: url("./assets/mobile/bg-pattern-header.svg");
+    height: 136px;
+    .filter {
+      position: absolute;
+      display: flex;
+      padding: 16px;
+      background-color: $white;
+      border-radius: 8px;
+      bottom: -48px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
+
   .jobs {
     margin-top: 256px;
     display: grid;
