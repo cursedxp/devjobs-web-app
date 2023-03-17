@@ -23,13 +23,15 @@ export default function Header() {
         </div>
       </div>
       <div className="filter">
-        <input type="search" placeholder="Filter by title…" />
-        <button className="white">
-          <img src={filterIcon} alt="filter" width={"20px"} height={"20px"} />
-        </button>
-        <button>
-          <img src={searchIcon} alt="" />
-        </button>
+        <form action="">
+          <input type="search" placeholder="Filter by title…" />
+          <button className="white">
+            <img src={filterIcon} alt="filter" width={"20px"} height={"20px"} />
+          </button>
+          <button>
+            <img src={searchIcon} alt="" />
+          </button>
+        </form>
       </div>
     </header>
   );
