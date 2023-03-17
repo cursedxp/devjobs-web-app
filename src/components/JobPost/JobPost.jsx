@@ -1,3 +1,5 @@
+import "./JobPost.scss";
+
 export default function JobPost({ job, id }) {
   return (
     <div className="job-post" key={id}>
