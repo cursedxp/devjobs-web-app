@@ -15,7 +15,7 @@ export default function Home() {
           return <JobPost job={job} id={id} />;
         })}
       </div>
-      <button>Load More</button>
+      <button className="more">Load More</button>
     </main>
   );
 }
