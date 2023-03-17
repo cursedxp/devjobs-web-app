@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Header from "../components/header/Header";
+import Header from "../components/Header/Header";
 import data from "../data/data.json";
 import { v4 as uuidv4 } from "uuid";
 import JobPost from "../components/JobPost/JobPost";
