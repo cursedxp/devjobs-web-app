@@ -1,8 +1,11 @@
 import { createContext, useState } from "react";
+import data from "../data/data.json";
 export const ThemeContext = createContext();
 
 export function ContextWrapper(props) {
   const [theme, setTheme] = useState("light");
+  const [jobs, setJobs] = useState(data);
+  const [jobList, setJobList] = useState([]);
 
   //Changes app theme
   const handleTheme = () => {
@@ -16,7 +19,9 @@ export function ContextWrapper(props) {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, handleTheme }}>
+    <ThemeContext.Provider
+      value={{ theme, handleTheme, jobs, jobList, setJobList }}
+    >
       {props.children}
     </ThemeContext.Provider>
   );
