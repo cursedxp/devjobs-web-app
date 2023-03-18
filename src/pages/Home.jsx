@@ -1,17 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header/Header";
-import data from "../data/data.json";
 import { v4 as uuidv4 } from "uuid";
 import JobPost from "../components/JobPost/JobPost";
+import { useContext } from "react";
+import { ThemeContext } from "../context/context";
 
 export default function Home() {
-  const [jobs, setJobs] = useState(data);
+  const { jobs, jobList, setJobList } = useContext(ThemeContext);
+
+  const setAllJobs = () => {
+    setJobList(jobs);
+  };
+
+  useEffect(() => {
+    setAllJobs();
+  }, []);
 
   return (
     <main>
       <Header></Header>
       <div className="jobs">
-        {jobs.map((job) => {
+        {jobList.map((job) => {
           const id = uuidv4();
           return <JobPost job={job} key={id} />;
         })}
