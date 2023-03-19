@@ -4,6 +4,7 @@ import searchIcon from "../../assets/mobile/searchIcon.svg";
 import { ThemeContext } from "../../context/context";
 import { useContext } from "react";
 import Modal from "../Modal/Modal";
+import LocationSearch from "../LocationSearch/LocationSearch";
 
 export default function Filter(e) {
   const [search, setSearch] = useState("");
@@ -51,7 +52,11 @@ export default function Filter(e) {
         <button>
           <img src={searchIcon} alt="" />
         </button>
-        {showModal && <Modal setShowModal={setShowModal}></Modal>}
+        {showModal && (
+          <Modal>
+            <LocationSearch setShowModal={setShowModal} />
+          </Modal>
+        )}
       </form>
     </div>
   );
