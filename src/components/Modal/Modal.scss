@@ -1,0 +1,9 @@
+$midnight: rgb(18, 23, 33);
+.modal {
+  position: absolute;
+  top: -104px;
+  left: -26px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($color: $midnight, $alpha: 0.5);
+}
