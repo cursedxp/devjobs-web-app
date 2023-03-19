@@ -3,9 +3,11 @@ import filterIcon from "../../assets/mobile/icon-filter.svg";
 import searchIcon from "../../assets/mobile/searchIcon.svg";
 import { ThemeContext } from "../../context/context";
 import { useContext } from "react";
+import Modal from "../Modal/Modal";
 
-export default function Filter() {
+export default function Filter(e) {
   const [search, setSearch] = useState("");
+  const [showModal, setShowModal] = useState(false);
   const { jobs, setJobList } = useContext(ThemeContext);
 
   const handleSearch = (searchText) => {
@@ -37,12 +39,19 @@ export default function Filter() {
             handleSearch(e.target.value);
           }}
         />
-        <button className="white">
+        <button
+          className="white"
+          onClick={(e) => {
+            e.preventDefault();
+            setShowModal(true);
+          }}
+        >
           <img src={filterIcon} alt="filter" width={"20px"} height={"20px"} />
         </button>
         <button>
           <img src={searchIcon} alt="" />
         </button>
+        {showModal && <Modal setShowModal={setShowModal}></Modal>}
       </form>
     </div>
   );
