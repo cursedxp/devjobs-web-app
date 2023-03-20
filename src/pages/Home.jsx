@@ -18,7 +18,6 @@ export default function Home() {
 
   return (
     <main>
-      <Header></Header>
       <div className="jobs">
         {jobList.map((job) => {
           const id = uuidv4();
