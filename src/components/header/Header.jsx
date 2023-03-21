@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Header.scss";
 import { ThemeContext } from "../../context/context";
 import sunIcon from "../../assets/mobile/sunIcon.svg";
@@ -8,10 +8,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-  const { handleTheme, jobs } = useContext(ThemeContext);
-  const location = useLocation();
-  const { id } = useParams();
-  const hideFilter = location.pathname === `/jobs/${id}`;
+  const { handleTheme, jobId } = useContext(ThemeContext);
 
   return (
     <header>
@@ -28,7 +25,7 @@ export default function Header() {
           </div>
           <img src={moonIcon} alt="dark theme" width={"20px"} height={"20px"} />
         </div>
-        {hideFilter && <Filter />}
+        {!jobId && <Filter />}
       </div>
     </header>
   );
