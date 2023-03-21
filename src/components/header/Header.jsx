@@ -7,10 +7,11 @@ import Filter from "../Filter/Filter";
 import { useLocation, useParams } from "react-router-dom";
 
 export default function Header() {
-  const { handleTheme } = useContext(ThemeContext);
+  const { handleTheme, jobs } = useContext(ThemeContext);
   const location = useLocation();
   const { id } = useParams();
   const hideFilter = location.pathname === `/jobs/${id}`;
+
   return (
     <header>
       <div className="brand">
@@ -25,7 +26,6 @@ export default function Header() {
           <img src={moonIcon} alt="dark theme" width={"20px"} height={"20px"} />
         </div>
         {hideFilter && <Filter />}
-        <div className=""></div>
       </div>
     </header>
   );
