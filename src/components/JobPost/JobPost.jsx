@@ -1,8 +1,8 @@
 import "./JobPost.scss";
 
-export default function JobPost({ job, id }) {
+export default function JobPost({ job }) {
   return (
-    <div className="job-post" key={id}>
+    <div className="job-post">
       <img className="company-logo" src={job.logo} alt={job.company} />
       <div>
         <div className="postedAt">
