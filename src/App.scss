@@ -155,20 +155,21 @@ $darkblue: rgb(25, 32, 45);
         margin: 32px 0 24px 0;
         font-size: 20px;
       }
+      li,
       p {
         font-size: 16px;
         color: $darkgrey;
         line-height: 24px;
       }
-      p ol,
-      p ul {
+      ol,
+      ul {
         margin: 32px 0 0 24px;
       }
-      p ol li::before {
+      ol li::before {
         color: $violet;
       }
-      p ol li,
-      p ul li {
+      ol li,
+      ul li {
         margin-bottom: 8px;
         padding-left: 24px;
       }
