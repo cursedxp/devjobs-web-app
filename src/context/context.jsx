@@ -6,6 +6,7 @@ export function ContextWrapper(props) {
   const [theme, setTheme] = useState("light");
   const [jobs, setJobs] = useState(data);
   const [jobList, setJobList] = useState([]);
+  const [jobId, setJobId] = useState(0);
 
   //Changes app theme
   const handleTheme = () => {
@@ -20,7 +21,15 @@ export function ContextWrapper(props) {
 
   return (
     <ThemeContext.Provider
-      value={{ theme, handleTheme, jobs, jobList, setJobList }}
+      value={{
+        theme,
+        handleTheme,
+        jobs,
+        jobList,
+        setJobList,
+        jobId,
+        setJobId,
+      }}
     >
       {props.children}
     </ThemeContext.Provider>
