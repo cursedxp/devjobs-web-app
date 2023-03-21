@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import JobPost from "../components/JobPost/JobPost";
 import { useContext } from "react";
 import { ThemeContext } from "../context/context";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const { jobs, jobList, setJobList } = useContext(ThemeContext);
@@ -21,7 +22,11 @@ export default function Home() {
       <div className="jobs">
         {jobList.map((job) => {
           const id = uuidv4();
-          return <JobPost job={job} key={id} />;
+          return (
+            <Link to={`/jobs/${job.id}`} key={id}>
+              <JobPost job={job} />
+            </Link>
+          );
         })}
       </div>
       <button className="more">Load More</button>
