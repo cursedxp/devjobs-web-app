@@ -2,6 +2,7 @@ $white: rgb(255, 255, 255);
 $grey: rgb(157, 174, 194);
 $darkgrey: rgb(110, 128, 152);
 $violet: rgb(89, 100, 224);
+$darkblue: rgb(25, 32, 45);
 .job-post {
   margin: 0 24px 0 24px;
   display: flex;
@@ -32,6 +33,7 @@ $violet: rgb(89, 100, 224);
   .position {
     font-size: 20px;
     font-weight: 700;
+    color: $darkblue;
   }
   .componay-name {
     font-size: 16px;
