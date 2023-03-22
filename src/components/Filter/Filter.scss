@@ -1,0 +1,56 @@
+$white: rgb(255, 255, 255);
+$midnight: rgb(18, 23, 33);
+$lightgrey: rgb(244, 246, 248);
+$lightviolet: rgb(147, 155, 244);
+$grey: rgb(157, 174, 194);
+$darkgrey: rgb(110, 128, 152);
+$violet: rgb(89, 100, 224);
+$darkblue: rgb(25, 32, 45);
+.filter {
+  position: absolute;
+  background-color: $white;
+  border-radius: 8px;
+  padding: 16px 16px 16px 0;
+  form {
+    display: flex;
+    .filter-by-location,
+    .filter-by-title {
+      display: flex;
+      align-items: center;
+      input[type="search"] {
+        padding-left: 16px;
+      }
+    }
+    .contract-filter {
+      display: flex;
+      align-items: center;
+
+      input[type="checkbox"] {
+        margin: 16px;
+      }
+      label {
+        font-weight: 700;
+        white-space: nowrap;
+      }
+    }
+    input[type="search"] {
+      border: none;
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+    button.extra-filter {
+      display: none;
+    }
+    button {
+      margin-left: 24px;
+      .buttonIcon {
+        display: none;
+      }
+      .buttonText {
+        font-weight: 700;
+      }
+    }
+  }
+}
