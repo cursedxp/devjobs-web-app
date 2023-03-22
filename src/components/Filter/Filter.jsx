@@ -1,28 +1,74 @@
 import { useEffect, useState } from "react";
 import filterIcon from "../../assets/mobile/icon-filter.svg";
-import searchIcon from "../../assets/mobile/searchIcon.svg";
+import { ReactComponent as SearchIcon } from "../../assets/mobile/searchIcon.svg";
 import { ThemeContext } from "../../context/context";
 import { useContext } from "react";
 import Modal from "../Modal/Modal";
 import LocationSearch from "../LocationSearch/LocationSearch";
+import { ReactComponent as PinIcon } from "../../assets/desktop/icon-location.svg";
+import "./Filter.scss";
 
-export default function Filter(e) {
+export default function Filter() {
   const [search, setSearch] = useState("");
+  const [location, setLocation] = useState("");
   const [showModal, setShowModal] = useState(false);
-  const { jobs, setJobList } = useContext(ThemeContext);
+  const [isChecked, setIsChecked] = useState(false);
+  const { jobs, setJobList, jobList } = useContext(ThemeContext);
 
-  const handleSearch = (searchText) => {
-    if (searchText === "") {
-      // Reset job list if search text is empty
+  //Filters by title includiing contract type
+  const handleTitleSearch = () => {
+    const filteredJobs = jobs.filter((job) => {
+      const company = job.company.toLowerCase();
+      const position = job.position.toLowerCase();
+      const byTitle = search.toLowerCase();
+      const isFullTime = job.contract === "Full Time";
+
+      const titleMatch =
+        company.includes(byTitle) || position.includes(byTitle);
+      const contractMatch = !isChecked || isFullTime;
+
+      return titleMatch && contractMatch;
+    });
+    setJobList(filteredJobs);
+  };
+
+  // filters by location includiing contract type
+  const handleLocationSearch = () => {
+    const byLocation = location.toLowerCase();
+    const filteredJobLocations = jobs.filter((job) => {
+      const jobLocation = job.location.toLowerCase();
+      const isFullTime = job.contract === "Full Time";
+
+      const locationMatch = jobLocation.includes(byLocation);
+      const contractMatch = !isChecked || isFullTime;
+
+      return locationMatch && contractMatch;
+    });
+    setJobList(filteredJobLocations);
+  };
+
+  //Filters both location and title includiing contract type
+  const handleSearch = () => {
+    if (!search && !location && !isChecked) {
+      console.log("No title, location, or full-time contract found");
       setJobList(jobs);
     } else {
-      //Filters company names and positions
+      const byTitle = search.toLowerCase();
+      const byLocation = location.toLowerCase();
+
       const filteredJobs = jobs.filter((job) => {
         const company = job.company.toLowerCase();
         const position = job.position.toLowerCase();
-        const text = searchText.toLowerCase();
-        return company.includes(text) || position.includes(text);
+        const jobLocation = job.location.toLowerCase();
+
+        const titleMatch =
+          !search || company.includes(byTitle) || position.includes(byTitle);
+        const locationMatch = !location || jobLocation.includes(byLocation);
+        const contractMatch = !isChecked || job.contract === "Full Time";
+
+        return titleMatch && locationMatch && contractMatch;
       });
+
       setJobList(filteredJobs);
     }
   };
@@ -30,18 +76,47 @@ export default function Filter(e) {
   return (
     <div className="filter">
       <form action="">
-        <input
-          name="search"
-          type="search"
-          placeholder="Filter by title…"
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-            handleSearch(e.target.value);
-          }}
-        />
+        <div className="filter-by-title">
+          <SearchIcon className="searchIcon" fill="red" />
+          <input
+            name="search"
+            type="search"
+            placeholder="Filter by title…"
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+          />
+        </div>
+        <div className="filter-by-location">
+          <PinIcon className="pinIcon" />
+          <input
+            type="search"
+            name="location"
+            placeholder="Filter by location"
+            value={location}
+            onChange={(e) => {
+              setLocation(e.target.value);
+            }}
+          />
+        </div>
+        <div className="contract-filter">
+          <input
+            type="checkbox"
+            name="contract"
+            value={isChecked}
+            onChange={(e) => {
+              if (e.target.checked === true) {
+                setIsChecked(true);
+              } else {
+                setIsChecked(false);
+              }
+            }}
+          />
+          <label htmlFor="">Full Time</label>
+        </div>
         <button
-          className="white"
+          className="white extra-filter"
           onClick={(e) => {
             e.preventDefault();
             setShowModal(true);
@@ -49,8 +124,14 @@ export default function Filter(e) {
         >
           <img src={filterIcon} alt="filter" width={"20px"} height={"20px"} />
         </button>
-        <button>
-          <img src={searchIcon} alt="" />
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            handleSearch();
+          }}
+        >
+          <SearchIcon className="buttonIcon" />
+          <span className="buttonText">Search</span>
         </button>
         {showModal && (
           <Modal>
