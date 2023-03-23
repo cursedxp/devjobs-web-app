@@ -6,7 +6,6 @@ import { useContext } from "react";
 import Modal from "../Modal/Modal";
 import LocationSearch from "../LocationSearch/LocationSearch";
 import { ReactComponent as PinIcon } from "../../assets/desktop/icon-location.svg";
-import "./Filter.scss";
 
 export default function Filter() {
   const [search, setSearch] = useState("");
@@ -74,33 +73,33 @@ export default function Filter() {
   };
 
   return (
-    <div className="filter">
-      <form action="">
-        <div className="filter-by-title">
-          <SearchIcon className="searchIcon" fill="red" />
-          <input
-            name="search"
-            type="search"
-            placeholder="Filter by title…"
-            value={search}
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
-          />
-        </div>
-        <div className="filter-by-location">
-          <PinIcon className="pinIcon" />
-          <input
-            type="search"
-            name="location"
-            placeholder="Filter by location"
-            value={location}
-            onChange={(e) => {
-              setLocation(e.target.value);
-            }}
-          />
-        </div>
-        <div className="contract-filter">
+    <form action="" className="filter">
+      <div className="filter-by-title">
+        <SearchIcon className="searchIcon" fill="red" />
+        <input
+          name="search"
+          type="search"
+          placeholder="Filter by title…"
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
+      </div>
+      <div className="filter-by-location">
+        <PinIcon className="pinIcon" />
+        <input
+          type="search"
+          name="location"
+          placeholder="Filter by location"
+          value={location}
+          onChange={(e) => {
+            setLocation(e.target.value);
+          }}
+        />
+      </div>
+      <div className="filter-by-contract">
+        <div className="checkbox-group">
           <input
             type="checkbox"
             name="contract"
@@ -113,32 +112,35 @@ export default function Filter() {
               }
             }}
           />
-          <label htmlFor="">Full Time</label>
         </div>
-        <button
-          className="white extra-filter"
-          onClick={(e) => {
-            e.preventDefault();
-            setShowModal(true);
-          }}
-        >
-          <img src={filterIcon} alt="filter" width={"20px"} height={"20px"} />
-        </button>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            handleSearch();
-          }}
-        >
-          <SearchIcon className="buttonIcon" />
-          <span className="buttonText">Search</span>
-        </button>
-        {showModal && (
-          <Modal>
-            <LocationSearch setShowModal={setShowModal} />
-          </Modal>
-        )}
-      </form>
-    </div>
+        <div className="button-group">
+          <button
+            className="show-extra-filters"
+            onClick={(e) => {
+              e.preventDefault();
+              setShowModal(true);
+            }}
+          >
+            <img src={filterIcon} alt="filter" width={"20px"} height={"20px"} />
+          </button>
+          <button
+            className="search-button"
+            onClick={(e) => {
+              e.preventDefault();
+              handleSearch();
+            }}
+          >
+            <SearchIcon className="button-Icon" />
+            <span className="buttonText">Search</span>
+          </button>
+        </div>
+      </div>
+
+      {showModal && (
+        <Modal>
+          <LocationSearch setShowModal={setShowModal} />
+        </Modal>
+      )}
+    </form>
   );
 }

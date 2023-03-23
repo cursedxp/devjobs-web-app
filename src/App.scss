@@ -9,234 +9,207 @@ $darkblue: rgb(25, 32, 45);
 
 .App {
   width: 100%;
-  main {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    .jobs {
-      margin-top: 256px;
-      display: grid;
-    }
-  }
-
-  button {
-    background-color: $violet;
-    border: none;
-    color: $white;
-    border-radius: 8px;
-    padding: 16px;
-    height: 48px;
-  }
-  button.white {
-    background-color: $white;
-    padding: 16px;
-    height: 48px;
-  }
-  .more {
-    padding: 16px 32px;
-    font-weight: 700;
-    margin: 32px 0;
-    max-width: 152px;
-    align-self: center;
-  }
-}
-@media (min-width: 376px) and (max-width: 768px) {
-  main {
-    .jobs {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0px;
-      row-gap: 48px;
-    }
-  }
   header {
-    background-image: url("./assets/mobile/bg-pattern-header.svg");
-    border-radius: 0 0 0 88px;
+    background-image: url("./assets/desktop/bg-pattern-header.svg");
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 160px;
-    .filter {
-      bottom: -48px;
-      left: 50%;
-      transform: translateX(-50%);
-      form {
+    z-index: 1;
+    .brand {
+      display: flex;
+      justify-content: space-between;
+      padding: 32px 24px;
+      align-items: center;
+      .brand-name {
+        font-size: 32px;
+        font-weight: 700;
+        color: $white;
+      }
+      .switch-container {
+        .switch {
+          width: 40px;
+          height: 20px;
+          border-radius: 20px;
+          background-color: $white;
+          position: relative;
+          .slider {
+            display: block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #5964e0;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.2s ease;
+          }
+          &.active {
+            background-color: $white;
+          }
+          &.active .slider {
+            transform: translateX(20px);
+          }
+        }
+      }
+      .filter {
+        position: absolute;
+        max-width: 1110px;
+        background-color: $white;
+        border-radius: 8px;
+        padding: 0px 16px 0px 16px;
+        display: flex;
+        bottom: -48px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 80px;
+        align-items: center;
+        .filter-by-location,
+        .filter-by-title,
+        .filter-by-contract,
+        .button-group {
+          height: 100%;
+          display: flex;
+          flex-grow: 1;
+          align-items: center;
+        }
+        .filter-by-location,
         .filter-by-title {
-          .pinIcon,
-          .searchIcon {
-            margin: 16px;
-            path {
-              fill: $violet;
+          border-right: 1px solid rgb(227, 227, 227);
+          input[type="search"] {
+            flex-grow: 1;
+            border: none;
+            &:focus {
+              border: none;
+              outline: none;
+            }
+          }
+        }
+        .filter-by-location .pinIcon,
+        .filter-by-title .searchIcon {
+          width: 24px;
+          height: 24px;
+          margin: 0 16px;
+          path {
+            fill: $violet;
+          }
+        }
+        .filter-by-contract {
+          display: flex;
+          justify-content: flex-end;
+          flex-grow: 0;
+          .checkbox-group,
+          .button-group {
+            display: flex;
+          }
+          .checkbox-group {
+            width: 176px;
+            margin-right: 16px;
+            input[type="checkbox"] {
+              margin: 0 16px;
+              width: 24px;
+              height: 24px;
+              border: none;
+              &::after {
+                content: "Full Time Only";
+                display: block;
+                text-align: right;
+                width: 60px;
+                white-space: nowrap;
+                margin-left: 40px;
+                font-weight: 700;
+              }
+            }
+          }
+          .button-group {
+            flex-grow: 0;
+            .show-extra-filters {
+              display: none;
+            }
+            .search-button {
+              padding: 0 32px;
+              .button-Icon {
+                display: none;
+              }
             }
           }
         }
       }
     }
   }
-}
-
-@media (max-width: 375px) {
   main {
-    .jobs {
-      grid-template-columns: 1fr;
-      gap: 48px;
-    }
-  }
-  header {
-    background-image: url("./assets/mobile/bg-pattern-header.svg");
-    height: 136px;
-    .filter {
-      bottom: -48px;
-      left: 50%;
-      transform: translateX(-50%);
-      form {
-        .filter-by-title {
-          .searchIcon {
-            display: none;
-          }
-        }
-        .filter-by-location {
-          display: none;
-        }
-        .contract-filter {
-          display: none;
-        }
-        button {
-          margin-left: 0;
-          .buttonIcon {
-            display: block;
-          }
-          .buttonText {
-            display: none;
-          }
-        }
-        button.extra-filter {
-          display: block;
-        }
-      }
-    }
-  }
-
-  .job-post {
-    .postedAt {
-      margin: 12px 0 0 0;
-    }
-    .location {
-      margin-top: 16px;
-    }
-  }
-  .job-details {
-    padding-top: 186px;
-    margin: 0 24px 0 24px;
+    margin: 0 auto;
+    max-width: 1110px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    .company-info {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 16px;
-      padding: 32px;
-      background-color: $white;
-      border-radius: 6px;
-      .company-name {
-        font-size: 20px;
-        font-weight: 700;
-        margin-top: 12px;
-      }
-      .company-url {
-        color: $darkgrey;
-      }
-      .company-logo {
-        position: absolute;
-        border-radius: 16px;
-        top: -25px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-    }
-    button.company-cta {
-      margin-top: 12px;
-      color: $violet;
-      font-weight: 700;
-      background-color: $lightgrey;
-    }
-    button {
-      margin: 50px 0 32px 0;
-    }
-    .position-details {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      padding: 24px;
-      background-color: $white;
-      border-radius: 8px;
-      margin-bottom: 128px;
-      .postedAt {
-        font-size: 16px;
-        color: $darkgrey;
-        .separator {
-          width: 4px;
-          height: 4px;
-          background-color: $darkgrey;
-          border-radius: 32px;
-          display: inline-block;
-          margin: 0 12px 0 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 56px;
+    .jobs {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      row-gap: 48px;
+      margin-top: 320px;
+      display: grid;
+      .job-post {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 350px;
+        height: 228px;
+        position: relative;
+        padding: 32px;
+        background-color: $white;
+        border-radius: 8px;
+        .company-logo {
+          position: absolute;
+          border-radius: 16px;
+          top: -25px;
+          left: 32px;
+        }
+        .postedAt {
+          font-size: 16px;
+          color: $darkgrey;
+          .separator {
+            width: 4px;
+            height: 4px;
+            background-color: $darkgrey;
+            border-radius: 32px;
+            display: inline-block;
+            margin: 0 12px 0 12px;
+          }
+        }
+        .position {
+          font-size: 20px;
+          font-weight: 700;
+          color: $darkblue;
+        }
+        .componay-name {
+          font-size: 16px;
+          color: $darkgrey;
+        }
+        .location {
+          font-size: 14px;
+          color: $violet;
+          font-weight: 700;
         }
       }
-      .position {
-        font-size: 20px;
-        font-weight: 700;
-        color: $darkblue;
-      }
-      .location {
-        color: $violet;
-        font-size: 14px;
-        font-weight: 700;
-      }
-      h3 {
-        margin: 32px 0 24px 0;
-        font-size: 20px;
-      }
-      li,
-      p {
-        font-size: 16px;
-        color: $darkgrey;
-        line-height: 24px;
-      }
-      ol,
-      ul {
-        margin: 32px 0 0 24px;
-      }
-      ol li::before {
-        color: $violet;
-      }
-      ol li,
-      ul li {
-        margin-bottom: 8px;
-        padding-left: 24px;
-      }
     }
-    .button-container {
-      position: fixed;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: $white;
-      width: 100%;
-      height: 96px;
-      bottom: 0;
-      left: 0;
-      padding: 24px 24px;
-      button {
-        width: 100%;
-        margin: 0;
-      }
+    button.more {
+      padding: 16px 32px;
+      font-weight: 700;
+      max-width: 152px;
+      align-self: center;
+      margin-bottom: 104px;
     }
   }
 }
-
 .light {
   background-color: $lightgrey;
 }
+
 .dark {
   background-color: $midnight;
   .job-post {
@@ -245,36 +218,105 @@ $darkblue: rgb(25, 32, 45);
       color: $white;
     }
   }
-  .filter {
-    background-color: $darkblue;
-    box-shadow: none;
-    input[type="search"] {
-      background-color: $darkblue;
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+  .App {
+    header {
+      background-image: url("./assets/mobile/bg-pattern-header.svg") no-repeat;
+      height: 160px;
+      .brand {
+        .filter {
+          max-width: 710px;
+          .filter-by-location,
+          .filter-by-title {
+            input[type="search"] {
+              width: 100%;
+            }
+          }
+          .filter-by-contract {
+            .checkbox-group {
+              width: 120px;
+              input[type="checkbox"] {
+                &::after {
+                  content: "Full Time";
+                  display: block;
+                  text-align: right;
+                  width: 60px;
+                  white-space: nowrap;
+                  margin-left: 40px;
+                }
+              }
+            }
+          }
+        }
+      }
     }
-    button.white {
-      background: none;
-      img {
-        fill: $white;
+    main {
+      .jobs {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 11px;
+        row-gap: 64px;
+        margin-top: 288px;
       }
     }
   }
-  .job-details {
-    .position-details,
-    .button-container,
-    .company-info {
-      background-color: $darkblue;
+}
+
+@media (max-width: 375px) {
+  .App {
+    header {
+      background-image: url("./assets/mobile/bg-pattern-header.svg");
+      height: 136px;
+      background-repeat: no-repeat;
+      .brand {
+        .filter {
+          max-width: 327px;
+          .filter-by-title {
+            border-right: none;
+            input[type="search"] {
+              width: 100%;
+            }
+            .searchIcon {
+              display: none;
+            }
+          }
+          .filter-by-location {
+            display: none;
+          }
+          .filter-by-contract {
+            .checkbox-group {
+              display: none;
+            }
+            .button-group {
+              .show-extra-filters {
+                display: block;
+                background-color: white;
+              }
+              .search-button {
+                padding: 16px;
+                .button-Icon {
+                  display: block;
+                }
+                .buttonText {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
     }
-    .position {
-      color: $white;
-    }
-    .position-details p {
-      color: $lightgrey;
-    }
-    .position-details h3 {
-      color: $white;
-    }
-    button.company-cta {
-      background-color: rgba(147, 155, 244, 0.1);
+    main {
+      .jobs {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        margin-top: 244px;
+        .job-post {
+          width: auto;
+          margin: 0 24px;
+        }
+      }
     }
   }
 }

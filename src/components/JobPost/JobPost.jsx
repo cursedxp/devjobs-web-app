@@ -1,5 +1,3 @@
-import "./JobPost.scss";
-
 export default function JobPost({ job }) {
   return (
     <div className="job-post">
