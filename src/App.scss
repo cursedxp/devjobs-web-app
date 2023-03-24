@@ -20,6 +20,8 @@ $darkblue: rgb(25, 32, 45);
     height: 160px;
     z-index: 1;
     .brand {
+      max-width: 1110px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       padding: 32px 24px;
