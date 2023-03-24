@@ -15,28 +15,35 @@ export default function JobDetails() {
   });
 
   return (
-    <div className="job-details">
+    <main className="job-details">
       <div className="company-info">
         <img
           className="company-logo"
           src={`../${job.logo}`}
           alt={job.company}
         />
-        <div className="company-name">{job.company}</div>
-        <a className="company-url" href={job.website}>
-          {job.company.toLowerCase()}.com
-        </a>
+        <div className="company-section">
+          <div className="company-name">{job.company}</div>
+          <a className="company-url" href={job.website}>
+            {job.company.toLowerCase()}.com
+          </a>
+        </div>
         <button className="company-cta">Company Site</button>
       </div>
       <div className="position-details">
-        <div className="postedAt">
-          {job.postedAt}
-          <span className="separator"></span>
-          {job.contract}
+        <div className="about-position">
+          <div className="position-wrapper">
+            <div className="postedAt">
+              {job.postedAt}
+              <span className="separator"></span>
+              {job.contract}
+            </div>
+            <div className="position">{job.position}</div>
+            <div className="location">{job.location}</div>
+          </div>
+          <button>Apply Now</button>
         </div>
-        <div className="position">{job.position}</div>
-        <div className="location">{job.location}</div>
-        <button>Apply Now</button>
+
         <p>{job.description}</p>
         <h3>Requirements</h3>
         <p>{job.requirements.content}</p>
@@ -56,8 +63,14 @@ export default function JobDetails() {
         </ol>
       </div>
       <div className="button-container">
-        <button>Apply Now</button>
+        <div className="position-container">
+          <div className="position">
+            <div>Senior Software Engineer</div>
+            <div>So Digital Inc.</div>
+          </div>
+          <button>Apply Now</button>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }

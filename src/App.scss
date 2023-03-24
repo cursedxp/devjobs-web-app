@@ -11,6 +11,8 @@ $darkblue: rgb(25, 32, 45);
   width: 100%;
   header {
     background-image: url("./assets/desktop/bg-pattern-header.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
     position: fixed;
     top: 0;
     left: 0;
@@ -136,6 +138,51 @@ $darkblue: rgb(25, 32, 45);
             }
           }
         }
+        .modal {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          top: -104px;
+          left: -26px;
+          width: 100vw;
+          height: 100vh;
+          background-color: rgba($color: $midnight, $alpha: 0.5);
+        }
+        .modal-style {
+          width: 327px;
+          background-color: $white;
+          border-radius: 6px;
+          .input-wrapper {
+            padding: 24px 24px;
+            display: flex;
+            input[type="search"] {
+              margin-left: 16px;
+              border-radius: 6px;
+              width: 100%;
+              border: none;
+              outline: none;
+            }
+            input[type="checkbox"] {
+              margin-right: 16px;
+              width: 24px;
+              height: 24px;
+            }
+            label {
+              font-weight: 700;
+            }
+            .icon-wrapper {
+              display: flex;
+              justify-content: center;
+              width: 28px;
+              height: 28px;
+              img {
+                width: 24px;
+                height: 24px;
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -193,6 +240,7 @@ $darkblue: rgb(25, 32, 45);
         .location {
           font-size: 14px;
           color: $violet;
+          margin-top: 40px;
           font-weight: 700;
         }
       }
@@ -205,6 +253,125 @@ $darkblue: rgb(25, 32, 45);
       margin-bottom: 104px;
     }
   }
+  main.job-details {
+    width: 730px;
+    .company-info {
+      background-color: $white;
+      display: flex;
+      width: 100%;
+      height: 140px;
+      margin-top: 180px;
+      border-radius: 6px;
+      align-items: center;
+      .company-logo {
+        width: 140px;
+        height: 140px;
+        border-radius: 6px 0 0 6px;
+      }
+      .company-section {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 32px;
+        flex-grow: 1;
+        .company-name {
+          font-size: 24px;
+          font-weight: 700;
+        }
+        .company-url {
+          color: $darkgrey;
+        }
+      }
+      .company-cta {
+        margin: 32px;
+        background-color: $lightgrey;
+        color: $violet;
+        font-weight: 700;
+      }
+    }
+    .position-details {
+      background-color: $white;
+      padding: 48px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-bottom: 128px;
+      .postedAt {
+        color: $darkgrey;
+        display: flex;
+        align-items: baseline;
+        .separator {
+          margin: 0 8px;
+          width: 4px;
+          height: 4px;
+          border-radius: 32px;
+          background-color: $darkgrey;
+        }
+      }
+      .about-position {
+        display: flex;
+        align-items: center;
+        .position-wrapper {
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          .position {
+            font-size: 28px;
+            font-weight: 700;
+          }
+          .location {
+            color: $violet;
+            font-weight: 700;
+            font-size: 14px;
+          }
+        }
+        button {
+          font-weight: 700;
+        }
+      }
+      ol li,
+      ul li,
+      p {
+        color: $darkgrey;
+        line-height: 26px;
+      }
+      h3 {
+        font-size: 20px;
+      }
+      ol li,
+      ul li {
+        margin-left: 16px;
+        padding-left: 16px;
+      }
+    }
+    .button-container {
+      position: fixed;
+      display: flex;
+      bottom: 0;
+      left: 0;
+      background-color: $white;
+      width: 100%;
+      justify-content: center;
+      .position-container {
+        display: flex;
+        max-width: 730px;
+        width: 100%;
+        margin: 24px 0;
+        .position {
+          flex-grow: 1;
+        }
+        .position > div:first-child {
+          font-weight: 700;
+          margin-bottom: 4px;
+        }
+        .position > div:last-child {
+          color: $darkgrey;
+          font-size: 14px;
+        }
+      }
+    }
+  }
 }
 .light {
   background-color: $lightgrey;
@@ -212,10 +379,79 @@ $darkblue: rgb(25, 32, 45);
 
 .dark {
   background-color: $midnight;
-  .job-post {
-    background-color: $darkblue;
-    .position {
-      color: $white;
+  header {
+    .brand {
+      .filter {
+        background-color: $darkblue;
+        .filter-by-location,
+        .filter-by-title {
+          border-right: 1px solid rgba(110, 128, 152, 0.4);
+          input[type="search"] {
+            background-color: $darkblue;
+            color: $white;
+          }
+        }
+        .filter-by-contract {
+          .checkbox-group {
+            input[type="checkbox"] {
+              &::after {
+                color: $white;
+              }
+            }
+          }
+          .button-group {
+            .show-extra-filters {
+              background-color: $darkblue;
+            }
+          }
+        }
+      }
+    }
+  }
+  main {
+    .jobs {
+      .job-post {
+        background-color: $darkblue;
+        .position {
+          color: $white;
+        }
+      }
+    }
+  }
+  main.job-details {
+    .company-info {
+      background-color: $darkblue;
+      .company-section {
+        .company-name {
+          color: $white;
+        }
+      }
+      .company-cta {
+        background-color: rgba(89, 100, 224, 0.1);
+      }
+    }
+    .position-details {
+      background-color: $darkblue;
+      .about-position {
+        .position-wrapper {
+          .position {
+            color: $white;
+          }
+        }
+      }
+      h3 {
+        color: $white;
+      }
+    }
+    .button-container {
+      background-color: $darkblue;
+    }
+    .button-container {
+      .position-container {
+        .position > div:first-child {
+          color: $white;
+        }
+      }
     }
   }
 }
@@ -260,6 +496,9 @@ $darkblue: rgb(25, 32, 45);
         margin-top: 288px;
       }
     }
+    main.job-details {
+      width: 689px;
+    }
   }
 }
 
@@ -291,7 +530,7 @@ $darkblue: rgb(25, 32, 45);
             .button-group {
               .show-extra-filters {
                 display: block;
-                background-color: white;
+                background-color: $white;
               }
               .search-button {
                 padding: 16px;
@@ -315,6 +554,81 @@ $darkblue: rgb(25, 32, 45);
         .job-post {
           width: auto;
           margin: 0 24px;
+        }
+      }
+    }
+    main.job-details {
+      width: 327px;
+      gap: 24px;
+      .company-info {
+        position: relative;
+        flex-direction: column;
+        height: 230px;
+        .company-logo {
+          position: absolute;
+          width: 50px;
+          height: 50px;
+          border-radius: 16px;
+          top: -25px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .company-section {
+          margin-top: 16px;
+          justify-content: center;
+          align-items: center;
+        }
+        .company-cta {
+          margin-top: 0px;
+        }
+      }
+      .position-details {
+        padding: 40px 24px;
+        .about-position {
+          flex-direction: column;
+          gap: 48px;
+          .position-wrapper {
+            gap: 8px;
+            .position {
+              font-size: 20px;
+            }
+          }
+        }
+        button {
+          width: 100%;
+        }
+      }
+      .button-container {
+        .position-container {
+          .position {
+            display: none;
+          }
+          button {
+            font-weight: 700;
+            width: 100%;
+            margin: 0 24px;
+          }
+        }
+      }
+    }
+  }
+  .dark {
+    header {
+      .brand {
+        .filter {
+          .modal {
+            .modal-style {
+              background-color: $darkblue;
+              .input-wrapper {
+                input[type="search"] {
+                  background-color: $darkblue;
+                }
+                label {
+                  color: $white;
+                }
+              }
+            }
+          }
         }
       }
     }

@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { useState } from "react";
 import { ThemeContext } from "../../context/context";
-import "./LocationSearch.scss";
 
 export default function LocationSearch(props) {
   const { jobs, setJobList } = useContext(ThemeContext);
@@ -54,7 +53,7 @@ export default function LocationSearch(props) {
               }
             }}
           />
-          <label htmlFor="">Full time only</label>
+          <label htmlFor="">Full Time Only</label>
         </div>
 
         <button
