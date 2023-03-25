@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.e9d2fc67.css",
-    "main.js": "/static/js/main.6df110fb.js",
-    "static/js/787.fe130bdd.chunk.js": "/static/js/787.fe130bdd.chunk.js",
-    "static/media/sunIcon.svg": "/static/media/sunIcon.f535599fe246e15b5c342365cba11cb5.svg",
-    "static/media/bg-pattern-header.svg": "/static/media/bg-pattern-header.ea1134f14277d29c5f40.svg",
-    "static/media/MoonIcon.svg": "/static/media/MoonIcon.3d5f121dddfbb7dc2cc4033e4e011fbd.svg",
-    "static/media/searchIcon.svg": "/static/media/searchIcon.2d88fac39399ae10d9412911a1de5cd2.svg",
-    "index.html": "/index.html",
-    "static/media/icon-filter.svg": "/static/media/icon-filter.2471816db9fac72cf5a8944825113ff8.svg",
-    "static/media/icon-location.svg": "/static/media/icon-location.325ff3d99912e5505f5cf31f67518b0c.svg",
-    "main.e9d2fc67.css.map": "/static/css/main.e9d2fc67.css.map",
-    "main.6df110fb.js.map": "/static/js/main.6df110fb.js.map",
-    "787.fe130bdd.chunk.js.map": "/static/js/787.fe130bdd.chunk.js.map"
+    "main.css": "/devjobs-web-app/static/css/main.00534500.css",
+    "main.js": "/devjobs-web-app/static/js/main.ecab0e8b.js",
+    "static/js/787.fe130bdd.chunk.js": "/devjobs-web-app/static/js/787.fe130bdd.chunk.js",
+    "static/media/sunIcon.svg": "/devjobs-web-app/static/media/sunIcon.f535599fe246e15b5c342365cba11cb5.svg",
+    "static/media/bg-pattern-header.svg": "/devjobs-web-app/static/media/bg-pattern-header.ea1134f14277d29c5f40.svg",
+    "static/media/MoonIcon.svg": "/devjobs-web-app/static/media/MoonIcon.3d5f121dddfbb7dc2cc4033e4e011fbd.svg",
+    "index.html": "/devjobs-web-app/index.html",
+    "static/media/searchIcon.svg": "/devjobs-web-app/static/media/searchIcon.2d88fac39399ae10d9412911a1de5cd2.svg",
+    "static/media/icon-filter.svg": "/devjobs-web-app/static/media/icon-filter.2471816db9fac72cf5a8944825113ff8.svg",
+    "static/media/icon-location.svg": "/devjobs-web-app/static/media/icon-location.325ff3d99912e5505f5cf31f67518b0c.svg",
+    "main.00534500.css.map": "/devjobs-web-app/static/css/main.00534500.css.map",
+    "main.ecab0e8b.js.map": "/devjobs-web-app/static/js/main.ecab0e8b.js.map",
+    "787.fe130bdd.chunk.js.map": "/devjobs-web-app/static/js/787.fe130bdd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e9d2fc67.css",
-    "static/js/main.6df110fb.js"
+    "static/css/main.00534500.css",
+    "static/js/main.ecab0e8b.js"
   ]
 }
