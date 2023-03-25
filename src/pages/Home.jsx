@@ -22,7 +22,7 @@ export default function Home() {
         {jobList.map((job) => {
           const id = uuidv4();
           return (
-            <Link to={`/jobs/${job.id}`} key={id}>
+            <Link to={`/devjobs-web-app/jobs/${job.id}`} key={id}>
               <JobPost job={job} />
             </Link>
           );
