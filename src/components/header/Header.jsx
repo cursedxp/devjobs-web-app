@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "../../context/context";
 import sunIcon from "../../assets/mobile/sunIcon.svg";
 import moonIcon from "../../assets/mobile/MoonIcon.svg";
 import Filter from "../Filter/Filter";
-import { useLocation, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function Header() {

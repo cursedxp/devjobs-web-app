@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import Header from "../components/Header/Header";
+import { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import JobPost from "../components/JobPost/JobPost";
 import { useContext } from "react";
