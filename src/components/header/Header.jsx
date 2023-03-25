@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <header>
       <div className="brand">
-        <Link className="brand-name" to="/">
+        <Link className="brand-name" to="/devjobs-web-app/">
           devjobs
         </Link>
         <div className="switch-container flex gap-4">
