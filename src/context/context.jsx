@@ -18,7 +18,6 @@ export function ContextWrapper(props) {
     const switchEl = document.querySelector(".switch");
     switchEl.classList.toggle("active");
   };
-
   return (
     <ThemeContext.Provider
       value={{

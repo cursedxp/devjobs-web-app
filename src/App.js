@@ -9,8 +9,11 @@ function App() {
     <div className="App light">
       <Header></Header>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/jobs/:id" element={<JobDetails />}></Route>
+        <Route path="/devjobs-web-app" element={<Home />}></Route>
+        <Route
+          path="/devjobs-web-app/jobs/:id"
+          element={<JobDetails />}
+        ></Route>
       </Routes>
     </div>
   );
